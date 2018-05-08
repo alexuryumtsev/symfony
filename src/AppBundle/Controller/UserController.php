@@ -110,9 +110,6 @@ class UserController extends Controller
         $em->flush();
         $this->addFlash('success','Delete user!');
         return $this->redirectToRoute('users_list');
-        return $this->render('user/list.html.twig',[
-            'users'=>$user,
-        ]);
     }
 
 }

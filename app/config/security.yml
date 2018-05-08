@@ -9,6 +9,15 @@ security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
+        chain_provider:
+                chain:
+                    providers: [in_memory, our_users]
+        in_memory:
+                memory:
+                    users:
+                        admin:
+                            password: 111
+                            roles: 'ROLE_ADMIN'
         our_users:
             entity: { class: AppBundle\Entity\Users, property: login }
 
@@ -36,4 +45,4 @@ security:
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
 
     access_control:
-         - { path: ^/admin, roles: ROLE_USER }
+         - { path: ^/admin, roles: ROLE_ADMIN }

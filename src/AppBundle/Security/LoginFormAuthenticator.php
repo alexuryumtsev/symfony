@@ -3,7 +3,6 @@
 namespace AppBundle\Security;
 
 use AppBundle\Form\LoginFormType;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -83,7 +82,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     }
 
     protected function getDefaultSuccessRedirectUrl(){
-        return $this->router->generate('users_list');
+        return $this->router->generate('log_user');
     }
 
 

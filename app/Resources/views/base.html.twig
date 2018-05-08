@@ -20,11 +20,16 @@
                 <ul class="nav navbar-nav">
                     {% if is_granted('ROLE_USER') %}
                         <li><a href="{{ path('logout_user') }}">Logout</a></li>
-                        <li><a href="{{ path('users_list') }}">Users</a></li>
                     {% else %}
                         <li><a href="{{ path('login_user') }}">Login</a></li>
                         <li><a href="{{ path('users_register') }}">Registration</a></li>
+
                     {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ path('logout_user') }}">Logout</a></li>
+                    <li><a href="{{ path('users_list') }}">Users</a></li>
+                    {% endif %}
+
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

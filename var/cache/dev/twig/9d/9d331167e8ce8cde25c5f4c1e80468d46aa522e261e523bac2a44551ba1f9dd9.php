@@ -57,24 +57,35 @@ class __TwigTemplate_5e2ea2d0dc6935ea2c458c8e3b61fd3f6e6190466f23925df91872bc1a1
             echo "                        <li><a href=\"";
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("logout_user");
             echo "\">Logout</a></li>
-                        <li><a href=\"";
-            // line 23
-            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("users_list");
-            echo "\">Users</a></li>
                     ";
         } else {
-            // line 25
+            // line 24
             echo "                        <li><a href=\"";
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login_user");
             echo "\">Login</a></li>
                         <li><a href=\"";
-            // line 26
+            // line 25
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("users_register");
             echo "\">Registration</a></li>
+
                     ";
         }
         // line 28
-        echo "                </ul>
+        echo "                    ";
+        if ($this->env->getExtension('Symfony\Bridge\Twig\Extension\SecurityExtension')->isGranted("ROLE_ADMIN")) {
+            // line 29
+            echo "                    <li><a href=\"";
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("logout_user");
+            echo "\">Logout</a></li>
+                    <li><a href=\"";
+            // line 30
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("users_list");
+            echo "\">Users</a></li>
+                    ";
+        }
+        // line 32
+        echo "
+                </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
@@ -85,14 +96,14 @@ class __TwigTemplate_5e2ea2d0dc6935ea2c458c8e3b61fd3f6e6190466f23925df91872bc1a1
 
 
         ";
-        // line 38
+        // line 43
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute(($context["app"] ?? $this->getContext($context, "app")), "session", array()), "flashBag", array()), "get", array(0 => "success"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["msg"]) {
-            // line 39
+            // line 44
             echo "            <div class=\"alert alert-info\" role=\"alert\">
                 ";
-            // line 40
+            // line 45
             echo twig_escape_filter($this->env, $context["msg"], "html", null, true);
             echo "
             </div>
@@ -101,24 +112,24 @@ class __TwigTemplate_5e2ea2d0dc6935ea2c458c8e3b61fd3f6e6190466f23925df91872bc1a1
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['msg'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 43
+        // line 48
         echo "
         <div class=\"starter-template\">
 
 
             ";
-        // line 47
+        // line 52
         $this->displayBlock('body', $context, $blocks);
-        // line 51
+        // line 56
         echo "        </div>
 
     </div><!-- /.container -->
 
 
         ";
-        // line 56
+        // line 61
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 63
+        // line 68
         echo "    </body>
 </html>
 ";
@@ -170,7 +181,7 @@ class __TwigTemplate_5e2ea2d0dc6935ea2c458c8e3b61fd3f6e6190466f23925df91872bc1a1
 
     }
 
-    // line 47
+    // line 52
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -179,7 +190,7 @@ class __TwigTemplate_5e2ea2d0dc6935ea2c458c8e3b61fd3f6e6190466f23925df91872bc1a1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 48
+        // line 53
         echo "
 
             ";
@@ -191,7 +202,7 @@ class __TwigTemplate_5e2ea2d0dc6935ea2c458c8e3b61fd3f6e6190466f23925df91872bc1a1
 
     }
 
-    // line 56
+    // line 61
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -200,7 +211,7 @@ class __TwigTemplate_5e2ea2d0dc6935ea2c458c8e3b61fd3f6e6190466f23925df91872bc1a1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 57
+        // line 62
         echo "
             <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>
             <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>
@@ -227,7 +238,7 @@ class __TwigTemplate_5e2ea2d0dc6935ea2c458c8e3b61fd3f6e6190466f23925df91872bc1a1
 
     public function getDebugInfo()
     {
-        return array (  204 => 57,  195 => 56,  183 => 48,  174 => 47,  161 => 7,  152 => 6,  134 => 5,  122 => 63,  120 => 56,  113 => 51,  111 => 47,  105 => 43,  96 => 40,  93 => 39,  89 => 38,  77 => 28,  72 => 26,  67 => 25,  62 => 23,  57 => 22,  55 => 21,  41 => 11,  39 => 6,  35 => 5,  29 => 1,);
+        return array (  215 => 62,  206 => 61,  194 => 53,  185 => 52,  172 => 7,  163 => 6,  145 => 5,  133 => 68,  131 => 61,  124 => 56,  122 => 52,  116 => 48,  107 => 45,  104 => 44,  100 => 43,  87 => 32,  82 => 30,  77 => 29,  74 => 28,  68 => 25,  63 => 24,  57 => 22,  55 => 21,  41 => 11,  39 => 6,  35 => 5,  29 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -262,11 +273,16 @@ class __TwigTemplate_5e2ea2d0dc6935ea2c458c8e3b61fd3f6e6190466f23925df91872bc1a1
                 <ul class=\"nav navbar-nav\">
                     {% if is_granted('ROLE_USER') %}
                         <li><a href=\"{{ path('logout_user') }}\">Logout</a></li>
-                        <li><a href=\"{{ path('users_list') }}\">Users</a></li>
                     {% else %}
                         <li><a href=\"{{ path('login_user') }}\">Login</a></li>
                         <li><a href=\"{{ path('users_register') }}\">Registration</a></li>
+
                     {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href=\"{{ path('logout_user') }}\">Logout</a></li>
+                    <li><a href=\"{{ path('users_list') }}\">Users</a></li>
+                    {% endif %}
+
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

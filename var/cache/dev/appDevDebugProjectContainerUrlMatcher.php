@@ -117,6 +117,21 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::logoutAction',  '_route' => 'logout_user',);
         }
 
+        // log_user
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'AppBundle\\Controller\\SecurityController::logAction',  '_route' => 'log_user',);
+            if ('/' === substr($pathinfo, -1)) {
+                // no-op
+            } elseif ('GET' !== $canonicalMethod) {
+                goto not_log_user;
+            } else {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'log_user'));
+            }
+
+            return $ret;
+        }
+        not_log_user:
+
         // users_register
         if ('/register' === $pathinfo) {
             return array (  '_controller' => 'AppBundle\\Controller\\UserController::registrationAction',  '_route' => 'users_register',);

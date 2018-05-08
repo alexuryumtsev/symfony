@@ -44,4 +44,13 @@ class SecurityController extends Controller
     {
         return $this->render('main/home.html.twig');
     }
+
+
+    /**
+     * @Route("/", name="log_user")
+     */
+    public function logAction()
+    {
+        return $this->render('main/home.html.twig');
+    }
 }

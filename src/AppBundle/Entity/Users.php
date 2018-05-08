@@ -96,8 +96,6 @@ class Users implements UserInterface
 
     }
 
-
-
     /**
      * @return mixed
      */

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: stazher
- * Date: 07.05.18
- * Time: 14:30
- */
 
 namespace AppBundle\Doctrine;
 
